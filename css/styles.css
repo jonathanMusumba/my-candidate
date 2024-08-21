@@ -31,13 +31,69 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #fff;
+    /* Reduced padding */
+    background-color: #f8f8f8;
 }
 
-.politician-photo img,
-.logo img {
-    width: 150px;
+.logo img,
+.politician-photo img {
+    max-width: 100px;
+    /* Reduced image size */
     height: auto;
+}
+
+.banner-text {
+    text-align: center;
+    flex: 1;
+    padding: 0 10px;
+    /* Reduced padding */
+}
+
+.banner-text h1 {
+    font-size: 18px;
+    /* Reduced font size */
+    margin: 0;
+    font-weight: bold;
+}
+
+.banner-text h2 {
+    font-size: 16px;
+    /* Reduced font size */
+    margin: 5px 0;
+    color: #555;
+}
+
+.slogan {
+    font-size: 14px;
+    /* Reduced font size */
+    margin: 5px 0;
+    color: #333;
+}
+
+.flag-lines {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.flag-lines .line {
+    height: 6px;
+    /* Reduced line height */
+    width: 50px;
+    /* Reduced line width */
+    margin: 0 2px;
+}
+
+.flag-lines .line.black {
+    background-color: black;
+}
+
+.flag-lines .line.yellow {
+    background-color: yellow;
+}
+
+.flag-lines .line.red {
+    background-color: red;
 }
 
 
@@ -392,17 +448,35 @@ footer {
 @media (max-width: 768px) {
     .top-bar {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        text-align: center;
     }
+    .banner-text {
+        padding: 10px 0;
+    }
+    .flag-lines .line {
+        width: 80px;
+        margin: 0 2px;
+    }
+    /* Adjust the navbar to stay in a row but be responsive */
     .navbar ul {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        /* Center the nav items */
         padding: 0;
     }
     .navbar ul li {
         margin-bottom: 10px;
+        flex: 1 1 auto;
+        /* Allow items to grow and shrink */
+        text-align: center;
     }
     .navbar ul li a {
         padding: 10px;
+        display: block;
+        width: 100%;
+        /* Make each link take full width of its container */
     }
     .hero {
         height: 300px;
