@@ -385,3 +385,36 @@ footer {
         opacity: 1;
     }
 }
+
+
+/* Mobile Styles */
+
+@media (max-width: 768px) {
+    .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .navbar ul {
+        flex-direction: column;
+        padding: 0;
+    }
+    .navbar ul li {
+        margin-bottom: 10px;
+    }
+    .navbar ul li a {
+        padding: 10px;
+    }
+    .hero {
+        height: 300px;
+    }
+    .image-grid {
+        flex-direction: column;
+    }
+    .image-item {
+        margin: 5px 0;
+    }
+    .testimonial-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
