@@ -32,3 +32,15 @@ window.addEventListener('load', function() {
         audio.muted = false;
     }, 100); // 100ms delay before unmuting
 });
+window.addEventListener('scroll', function() {
+    const elements = document.querySelectorAll('.fade-in');
+    const viewportHeight = window.innerHeight;
+
+    elements.forEach(function(element) {
+        const elementTop = element.getBoundingClientRect().top;
+
+        if (elementTop < viewportHeight - 100) {
+            element.classList.add('visible');
+        }
+    });
+});
