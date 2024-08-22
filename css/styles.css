@@ -461,22 +461,19 @@ footer {
     /* Adjust the navbar to stay in a row but be responsive */
     .navbar ul {
         flex-direction: row;
+        /* Maintain row layout on mobile */
         flex-wrap: wrap;
-        justify-content: center;
-        /* Center the nav items */
-        padding: 0;
+        /* Allow items to wrap if necessary */
     }
     .navbar ul li {
-        margin-bottom: 10px;
-        flex: 1 1 auto;
-        /* Allow items to grow and shrink */
-        text-align: center;
+        flex: 1 0 100%;
+        /* Allow items to take full width on small screens */
+        margin: 5px 0;
+        /* Add margin for spacing */
     }
     .navbar ul li a {
-        padding: 10px;
-        display: block;
-        width: 100%;
-        /* Make each link take full width of its container */
+        padding: 15px;
+        /* Increase padding for better touch targets */
     }
     .hero {
         height: 300px;
