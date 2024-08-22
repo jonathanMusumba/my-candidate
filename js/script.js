@@ -26,3 +26,9 @@ document.addEventListener("DOMContentLoaded", function() {
         images[currentIndex].classList.add('active');
     }, 4000);
 });
+window.addEventListener('load', function() {
+    const audio = document.getElementById('background-sound');
+    setTimeout(() => {
+        audio.muted = false;
+    }, 100); // 100ms delay before unmuting
+});
