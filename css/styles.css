@@ -475,23 +475,34 @@ header {
 
 /* Footer */
 
+
+/* Footer Styles */
+
 footer {
     background-color: #333;
     color: #fff;
     padding: 15px;
     text-align: center;
     font-size: 0.9em;
+    opacity: 0;
+    /* Initially hidden */
+    animation: fadeInEase 2s ease-in-out forwards;
+    /* Animation with easing */
 }
 
 
-/* Animations */
+/* Keyframes for the fade-in effect */
 
-@keyframes fadeIn {
+@keyframes fadeInEase {
     from {
         opacity: 0;
+        transform: translateY(20px);
+        /* Start from below */
     }
     to {
         opacity: 1;
+        transform: translateY(0);
+        /* End at its original position */
     }
 }
 

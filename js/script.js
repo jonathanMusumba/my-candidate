@@ -44,3 +44,11 @@ window.addEventListener('scroll', function() {
         }
     });
 });
+document.addEventListener('DOMContentLoaded', function() {
+    const startYear = 2021;
+    const currentYear = new Date().getFullYear();
+    const yearRange = (currentYear > startYear) ? `${startYear} - ${currentYear}` : startYear;
+    const copyrightText = `&copy; ${yearRange} Hon. Eng. Luke Kyobe Inyensiko-Luuka North. All rights reserved.`;
+
+    document.getElementById('copyright').innerHTML = copyrightText;
+});
