@@ -52,3 +52,43 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById('copyright').innerHTML = copyrightText;
 });
+document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.querySelector('.vision-slide');
+    const slides = slider.children;
+    const totalSlides = slides.length;
+    const slideWidth = slides[0].getBoundingClientRect().width;
+    let currentIndex = 0;
+
+    function showSlide(index) {
+        slider.style.transform = `translateX(-${index * slideWidth}px)`;
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        showSlide(currentIndex);
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        showSlide(currentIndex);
+    }
+
+    // Auto-slide every 5 seconds
+    setInterval(nextSlide, 5000);
+
+    // Handle view more button click
+    document.querySelectorAll('.view-more').forEach(button => {
+        button.addEventListener('click', function() {
+            const card = this.closest('.vision-card');
+            card.classList.toggle('show-content');
+        });
+    });
+
+    // Handle reaction icon click
+    document.querySelectorAll('.reaction-icon').forEach(icon => {
+        icon.addEventListener('click', function() {
+            const counter = this.querySelector('.counter');
+            counter.textContent = parseInt(counter.textContent) + 1;
+        });
+    });
+});
