@@ -157,80 +157,79 @@ header {
     display: flex;
     width: 100%;
     height: 100%;
-    animation: slide 30s infinite alternate;
-    position: relative;
+    position: absolute;
+    overflow: hidden;
 }
 
-.slider img {
+.slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 1s ease;
+}
+
+.slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    position: absolute;
-    opacity: 0;
-    transition: opacity 2s ease-in-out, transform 10s ease-in-out;
-    transform: scale(1.1);
-    /* Slight zoom-in for a dynamic effect */
+    transition: transform 1.5s ease-in-out;
 }
 
-.slider img.active {
-    opacity: 1;
-    transform: scale(1);
-}
-
-@keyframes slide {
-    0% {
-        transform: translateX(0%);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
-}
-
-.hero-overlay {
+.slide .overlay {
     position: absolute;
     bottom: 15%;
-    left: 0;
-    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
     text-align: center;
     color: white;
-    padding: 30px;
+    padding: 20px;
     background-color: rgba(0, 0, 0, 0.5);
-    animation: overlayFadeIn 2s ease-in-out;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    opacity: 0;
 }
 
-@keyframes overlayFadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.slide.active .overlay {
+    opacity: 1;
 }
 
 .hero-overlay h2 {
     font-size: 3.5em;
     margin: 0;
-    animation: fadeInText 2s ease-in-out 1s forwards;
-    opacity: 0;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
 
 .hero-overlay p {
     font-size: 1.75em;
     margin-top: 10px;
-    animation: fadeInText 2s ease-in-out 2s forwards;
-    opacity: 0;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
 
-@keyframes fadeInText {
+
+/* Parallax Effect */
+
+.hero {
+    will-change: transform;
+}
+
+@media (min-width: 768px) {
+    .hero {
+        background-attachment: fixed;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+
+/* Parallax Effect Animation */
+
+@keyframes parallax {
     0% {
-        opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(0%);
     }
     100% {
-        opacity: 1;
-        transform: translateY(0);
+        transform: translateY(-30%);
     }
 }
 
@@ -461,51 +460,84 @@ header {
 /* Support Section */
 
 .support {
-    padding: 40px 20px;
-    background-color: #fff;
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #f4f4f4;
 }
 
 .support h2 {
-    text-align: center;
+    font-size: 2.5em;
     margin-bottom: 20px;
 }
 
-.cta-buttons {
-    text-align: center;
-    margin-bottom: 30px;
+.support p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
 }
 
 .cta-buttons .btn {
-    background-color: #ff0;
-    color: #333;
+    background-color: #007BFF;
+    color: #fff;
     padding: 10px 20px;
-    text-decoration: none;
     border-radius: 5px;
-    font-size: 1.2em;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-.testimonials {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.testimonial-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* Show 4 testimonials at a time */
+    gap: 20px;
+    overflow: hidden;
 }
 
 .testimonial-item {
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 8px;
+    background-color: #ececec;
+    border-radius: 10px;
+    padding: 20px;
     text-align: center;
-    max-width: 600px;
-    width: 100%;
+    transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
-.testimonial-item img {
-    width: 80px;
-    height: 80px;
+.testimonial-content img {
     border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.testimonial-content p {
+    font-size: 1.2em;
+    color: #555;
     margin-bottom: 10px;
+}
+
+.testimonial-content h4 {
+    font-size: 1.1em;
+    color: #333;
+    font-weight: bold;
+}
+
+.nav-dots {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.dot.active {
+    background-color: #717171;
 }
 
 
@@ -660,4 +692,245 @@ footer {
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+
+/* Login Section Styles */
+
+.login {
+    padding: 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.login h2 {
+    margin-bottom: 20px;
+}
+
+.login form {
+    display: inline-block;
+    text-align: left;
+}
+
+.login label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.login input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.login button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.login button:hover {
+    background-color: #0056b3;
+}
+
+#login-message {
+    margin-top: 10px;
+}
+
+
+/* Gallery Section */
+
+
+/* Gallery Section */
+
+#gallery {
+    padding: 40px 20px;
+    background-color: #f4f4f4;
+}
+
+#gallery h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    perspective: 1000px;
+    /* For 3D effect */
+}
+
+.image-item {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    overflow: hidden;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    will-change: transform, opacity;
+}
+
+
+/* Scrolling Effect for Images in Gallery */
+
+.image-item.scroll-effect {
+    transform: translateZ(-300px) rotateX(30deg);
+    /* Adjust for perspective */
+}
+
+
+/* Lightbox Styles */
+
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 80%;
+}
+
+#lightbox-img {
+    width: 100%;
+    height: auto;
+}
+
+.close,
+.prev-lightbox,
+.next-lightbox {
+    position: absolute;
+    top: 50%;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 2em;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.close {
+    top: 10px;
+    right: 10px;
+}
+
+.prev-lightbox {
+    left: 10px;
+}
+
+.next-lightbox {
+    right: 10px;
+}
+
+
+/* Video Gallery Section */
+
+#video-gallery {
+    padding: 40px 20px;
+    background-color: #fff;
+}
+
+#video-gallery h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.video-slider {
+    position: relative;
+    overflow: hidden;
+    height: 400px;
+}
+
+.video-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.video-slide {
+    min-width: 33.33%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.video-slide img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.video-slide img:hover {
+    transform: scale(1.05);
+}
+
+.video-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.video-playback {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    color: #fff;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.video-slide:hover .video-playback {
+    opacity: 1;
+}
+
+.video-slider .prev,
+.video-slider .next {
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.video-slider .prev {
+    left: 10px;
+}
+
+.video-slider .next {
+    right: 10px;
+}
+
+.video-slider .prev:hover,
+.video-slider .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }

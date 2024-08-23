@@ -32,6 +32,12 @@
     <meta name="twitter:image" content="https://ugandadecides.essap.co.za/uploads/logos/2735.jpg">
     <meta name="twitter:site" content="@yourtwitterhandle">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src https://www.tiktok.com;">
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="images/favicon/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="apple-touch-icon" href="images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -52,6 +58,26 @@
                 "https://twitter.com/yourtwitterhandle",
                 "https://www.facebook.com/MPLuukaNorth/"
             ]
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Your Website Name",
+            "short_name": "Short Name",
+            "icons": [{
+                "src": "images/favicon/android-chrome-192x192.png",
+                "sizes": "192x192",
+                "type": "image/png"
+            }, {
+                "src": "images/favicon/android-chrome-512x512.png",
+                "sizes": "512x512",
+                "type": "image/png"
+            }],
+            "theme_color": "#ffffff",
+            "background_color": "#ffffff",
+            "display": "standalone"
         }
     </script>
     <link rel="stylesheet" href="css/styles.css">
@@ -87,6 +113,7 @@
                 <li><a href="#achievements">Achievements</a></li>
                 <li><a href="#vision">Vision</a></li>
                 <li><a href="#support">Support</a></li>
+                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -95,38 +122,27 @@
     <!-- Hero Section with Video Background -->
     <section id="home" class="hero">
         <div class="slider">
-            <img src="images/1.jpg" class="active" alt="Image 1 Caption">
-            <img src="images/2.jpg" alt="Image 2 Caption">
-            <img src="images/3.jpg" alt="Image 3 Caption">
-            <img src="images/4.jpg" alt="Image 4 Caption">
-            <img src="images/5.jpg" alt="Image 5 Caption">
-            <img src="images/6.jpg" alt="Image 6 Caption">
-            <img src="images/7.jpg" alt="Image 7 Caption">
-            <img src="images/8.jpg" alt="Image 8 Caption">
-            <img src="images/9.jpg" alt="Image 9 Caption">
-            <img src="images/10.jpg" alt="Image 10 Caption">
-            <!-- Add more images as needed -->
-        </div>
-        <div class="hero-overlay">
-            <h2>Vote for Change</h2>
-            <p>Join us in building a brighter future together.</p>
+            <div class="slide">
+                <img src="images/1.jpg" alt="Image 1 Caption">
+                <div class="overlay">
+                    <h2>Vote for Change</h2>
+                    <p>Join us in building a brighter future together.</p>
+                </div>
+            </div>
+            <!-- Repeat for each image -->
+            <div class="slide">
+                <img src="images/2.jpg" alt="Image 2 Caption">
+                <div class="overlay">
+                    <h2>Empower Yourself</h2>
+                    <p>Discover opportunities to grow and excel.</p>
+                </div>
+            </div>
+            <!-- Add more slides as needed -->
         </div>
     </section>
-    <section id="tiktok" class="hero">
-        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@kyobeluke1/video/7405841227381312773" data-video-id="7405841227381312773" style="max-width: 605px; min-width: 325px;">
-            <section>
-                <a target="_blank" title="@kyobeluke1" href="https://www.tiktok.com/@kyobeluke1/video/7405841227381312773">@kyobeluke1</a>
-            </section>
-        </blockquote>
-        <script async src="https://www.tiktok.com/embed.js"></script>
-    </section>
-
-
-
 
 
     <!-- Achievements/Introduction Section -->
-    <!-- Achievements Section -->
     <section id="achievements" class="achievements fade-in">
         <h2>Achievements</h2>
         <p>During the last term, we achieved significant milestones in various sectors including Health, Education, Social Economic Development, Community Support, and Monitoring.</p>
@@ -327,22 +343,134 @@
         </div>
         <div class="testimonials">
             <h3>What Our Supporters Say</h3>
-            <!-- Testimonial Example -->
-            <div class="testimonial-item">
-                <img src="images/supporter1.jpg" alt="Supporter 1">
-                <p>"Candidate Name has been a strong advocate for our community."</p>
+            <div class="testimonial-container">
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <img src="images/supporter3.jpg" alt="Supporter 1">
+                        <p>"Ehhh nze akoba ku Kyobe nffa naye. Kyobe yatugha embago kati tulima. His support has been invaluable, and we are grateful for his continued efforts."</p>
+                        <h4>- Mwajuma Aseri,60<br> Bukooma</h4>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <img src="images/MUSUMBA.png" alt="Supporter 2">
+                        <p>"He donated an ambulance to Kiyunga Health Center IV before he was even elected in 2015, which saved countless lives of mothers who previously faced high mortality rates. He truly deserves to be voted in, paka paka!"</p>
+                        <h4>- Musumba Jonathan <br> Luuka Town Council</h4>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <img src="images/suppoter1.jpg" alt="Supporter 3">
+                        <p>"Kyobe has provided many students with scholastic materials, ensuring they have the tools needed for their education. His support for our students is truly making a difference."</p>
+                        <h4>-Muzaaya Mbalumya</h4>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <img src="images/mwase.jpg" alt="Supporter 3">
+                        <p>He gave land for the construction of the Luuka Technical Institute, enhancing educational opportunities for our youth. This kind of forward-thinking leadership is what we need."
+                            <h4>- Mwase Gideon <br> NRM Chairperson</h4>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <img src="images/supporter4.jpg" alt="Supporter 3">
+                        <p>"His generosity extends to supporting our community with plastic seats for functions, ensuring we have proper furniture for events. He truly understands our needs."
+                            <h4>-Aminsi <br> Buseete</h4>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <img src="images/supporter6.jpg" alt="Supporter 3">
+                        <p>"Kyobe renovated the Kiyunga Health Center IV Operating Theatre and Maternity, greatly improving healthcare facilities. His dedication to health is commendable."
+                            <h4>-Nangobi Perudasi<br> Kiyunga</h4>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <img src="images/supporter5.jpg" alt="Supporter 3">
+                        <p>"Honorable Kyobe has ensured that the District Hospital has a fully operational doctor and adequate blood supplies. His efforts in improving healthcare are deeply appreciated."
+                            <h4>- Kibumba Isaac,54 <br> Ikumbya Sub county</h4>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <img src="images/Nagaya.jpg" alt="Supporter 3">
+                        <p>"He has supported many boda boda riders in our area, providing them with resources and assistance. His support for small businesses is making a real impact."
+                            <h4>- Nagaya Jaberi <br> Chairman Boda Boda Luuka District</h4>
+                    </div>
+                </div>
             </div>
-            <div class="testimonial-item">
-                <img src="images/supporter2.jpg" alt="Supporter 2">
-                <p>"I believe in their vision for a better future."</p>
+            <div class="nav-dots">
+                <span class="dot active" onclick="currentSlide(0)"></span>
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
             </div>
-            <div class="testimonial-item">
-                <img src="images/supporter3.jpg" alt="Supporter 3">
-                <p>"They have my full support for the upcoming election."</p>
-            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Gallery-->
+
+    <section id="gallery" class="gallery fade-in">
+        <h2>Image Gallery</h2>
+        <div class="image-gallery">
+            <!-- Add your images here -->
+            <div class="image-item"><img src="images/1.jpg" alt="Image 1"></div>
+            <div class="image-item"><img src="images/2.jpg" alt="Image 2"></div>
+            <div class="image-item"><img src="images/3.jpeg" alt="Image 3"></div>
+            <div class="image-item"><img src="images/4.jpeg" alt="Image 1"></div>
+            <div class="image-item"><img src="images/5.jpeg" alt="Image 2"></div>
+            <div class="image-item"><img src="images/6.jpeg" alt="Image 3"></div>
+            <div class="image-item"><img src="images/12.jpg" alt="Image 1"></div>
+            <div class="image-item"><img src="images/13.jpg" alt="Image 2"></div>
+            <div class="image-item"><img src="images/14.jpg" alt="Image 3"></div>
+            <div class="image-item"><img src="images/15.jpg" alt="Image 3"></div>
+            <div class="image-item"><img src="images/16.jpg" alt="Image 1"></div>
+            <div class="image-item"><img src="images/17.jpg" alt="Image 2"></div>
+            <div class="image-item"><img src="images/18.jpg" alt="Image 3"></div>
+            <div class="image-item"><img src="images/19.jpg" alt="Image 3"></div>
+            <div class="image-item"><img src="images/grader.jpeg" alt="Image 3"></div>
+            <div class="image-item"><img src="images/Ambulance 2.jpeg" alt="Image 3"></div>
+            <div class="image-item"><img src="images/community1.jpeg" alt="Image 3"></div>
+            <div class="image-item"><img src="images/community4.jpg" alt="Image 3"></div>
+            <!-- More images -->
         </div>
     </section>
 
+    <section id="video-gallery" class="gallery fade-in">
+        <h2>Video Gallery</h2>
+        <div class="video-slider">
+            <div class="video-slides">
+                <!-- Add video slides here -->
+                <div class="video-slide">
+                    <img src="video-thumbnail1.jpg" alt="Video 1">
+                    <div class="video-caption">Video 1</div>
+                    <div class="video-playback">&#9658;</div>
+                </div>
+                <div class="video-slide">
+                    <img src="video-thumbnail2.jpg" alt="Video 2">
+                    <div class="video-caption">Video 2</div>
+                    <div class="video-playback">&#9658;</div>
+                </div>
+                <!-- More video slides -->
+            </div>
+            <button class="prev">&lt;</button>
+            <button class="next">&gt;</button>
+        </div>
+    </section>
+
+    <!-- Lightbox for Images -->
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="">
+            <div id="caption"></div>
+            <button class="prev-lightbox">&#9664;</button>
+            <button class="next-lightbox">&#9654;</button>
+        </div>
+    </div>
     <!-- Contact Section -->
     <section id="contact" class="contact fade-in">
         <h2>Contact Us</h2>
@@ -370,6 +498,7 @@
         <source src="mixkit-santa-claus-is-here-533.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
+
 
     <!-- Footer -->
     <footer>
