@@ -26,6 +26,8 @@ document.addEventListener("DOMContentLoaded", function() {
         images[currentIndex].classList.add('active');
     }, 4000);
 });
+
+
 const navbar = document.querySelector('.navbar ul');
 navbar.classList.toggle('active');
 
@@ -283,7 +285,31 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('#video-gallery .video-slider').forEach(sliderContainer => {
         initializeSlider(sliderContainer);
     });
+    if (event.target.classList.contains('video-item')) {
+        const videoSrc = event.target.dataset.videoSrc;
+        const lightbox = document.querySelector('.video-lightbox');
+        const videoElement = document.getElementById('video-lightbox');
+        const backgroundAudio = document.getElementById('background-sound');
+
+        videoElement.src = videoSrc;
+        lightbox.style.display = 'flex';
+
+        // Mute background audio
+        backgroundAudio.muted = true;
+    } else if (event.target.classList.contains('close')) {
+        const lightbox = document.querySelector('.video-lightbox');
+        const videoElement = document.getElementById('video-lightbox');
+        const backgroundAudio = document.getElementById('background-sound');
+
+        lightbox.style.display = 'none';
+        videoElement.pause();
+        videoElement.src = ''; // Stop video
+
+        // Unmute background audio
+        backgroundAudio.muted = false;
+    }
 });
+
 const testimonials = document.querySelectorAll('.testimonial-item');
 const dots = document.querySelectorAll('.dot');
 let currentIndex = 0;
@@ -377,4 +403,26 @@ const observer = new IntersectionObserver((entries) => {
 // Observe each post
 posts.forEach(post => {
     observer.observe(post);
+});
+document.addEventListener('DOMContentLoaded', function() {
+    const swiper = new Swiper('.swiper-container', {
+        loop: true, // Enable looping
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        autoplay: {
+            delay: 3000, // Slide every 3 seconds
+            disableOnInteraction: false,
+        },
+        effect: 'fade', // Use fade effect between slides
+        fadeEffect: {
+            crossFade: true
+        },
+        speed: 1000, // Transition speed
+    });
 });

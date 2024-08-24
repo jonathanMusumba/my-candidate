@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Slider</title>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            /* Full viewport height */
+            overflow: hidden;
+        }
+        
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .swiper-slide {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: opacity 0.5s ease-in-out;
+            /* Smooth transition for slide changes */
+        }
+        
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Ensures the image covers the container while maintaining aspect ratio */
+            object-position: center;
+            /* Center the image within its container */
+            transition: opacity 0.5s ease-in-out;
+            /* Smooth transition for image changes */
+        }
+        
+        .overlay {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 90%;
+            box-sizing: border-box;
+            opacity: 0;
+            /* Start with overlay hidden */
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            /* Smooth transition for overlay */
+            transform: translateY(20px);
+            /* Start overlay slightly below its final position */
+        }
+        
+        .swiper-slide-active .overlay {
+            opacity: 1;
+            /* Show overlay when slide is active */
+            transform: translateY(0);
+            /* Move overlay to its final position */
+        }
+        
+        .overlay h2 {
+            margin: 0;
+            font-size: 1.8rem;
+            transition: color 0.3s ease-in-out;
+            /* Smooth transition for text color */
+        }
+        
+        .overlay p {
+            margin: 10px 0;
+            font-size: 1rem;
+            transition: color 0.3s ease-in-out;
+            /* Smooth transition for text color */
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #ff5722;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+            /* Smooth transition for button */
+        }
+        
+        .cta-button:hover {
+            background: #e64a19;
+            transform: scale(1.05);
+            /* Slightly enlarge button on hover */
+        }
+        
+        .swiper-pagination {
+            bottom: 10px;
+            transition: opacity 0.5s ease-in-out;
+            /* Smooth transition for pagination */
+        }
+        
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #fff;
+            transition: opacity 0.5s ease-in-out;
+            /* Smooth transition for navigation buttons */
+        }
+        /* Responsive Styles */
+        
+        @media (max-width: 768px) {
+            .overlay {
+                bottom: 15px;
+                left: 15px;
+                padding: 15px;
+                max-width: 85%;
+            }
+            .overlay h2 {
+                font-size: 1.6rem;
+            }
+            .overlay p {
+                font-size: 0.9rem;
+            }
+            .cta-button {
+                padding: 8px 15px;
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .overlay {
+                bottom: 10px;
+                left: 10px;
+                padding: 10px;
+                max-width: 80%;
+            }
+            .overlay h2 {
+                font-size: 1.4rem;
+            }
+            .overlay p {
+                font-size: 0.8rem;
+            }
+            .cta-button {
+                padding: 6px 12px;
+                font-size: 0.7rem;
+            }
+            .swiper-button-next,
+            .swiper-button-prev {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section id="home" class="hero">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <!-- Hero Slide 1: Dynamic Achievement Showcase -->
+                <div class="swiper-slide">
+                    <img src="images/Ambulance 2.jpeg" alt="Health Achievement">
+                    <div class="overlay">
+                        <h2>A Legacy of Progress</h2>
+                        <p>Health, Education, and Beyond – Empowering our community through dedicated service and innovation.</p>
+                        <a href="#achievements" class="cta-button">See Our Achievements</a>
+                    </div>
+                </div>
+                <!-- Hero Slide 2: Future Vision -->
+                <div class="swiper-slide">
+                    <img src="images/health1.jpg" alt="Education Achievement">
+                    <div class="overlay">
+                        <h2>Building Tomorrow, Today</h2>
+                        <p>Join us in shaping a brighter future for our community.</p>
+                        <a href="#vision" class="cta-button">Explore Our Vision</a>
+                    </div>
+                </div>
+                <!-- Hero Slide 3: Personal Impact Stories -->
+                <div class="swiper-slide">
+                    <img src="images/community1.jpeg" alt="Community Support">
+                    <div class="overlay">
+                        <h2>Stories of Change</h2>
+                        <p>Hear from those who’ve benefited from our initiatives.</p>
+                        <a href="#stories" class="cta-button">Read Their Stories</a>
+                    </div>
+                </div>
+                <!-- Hero Slide 4: Achievements Highlight Reel -->
+                <div class="swiper-slide">
+                    <img src="images/grader.jpeg" alt="Economic Development">
+                    <div class="overlay">
+                        <h2>Proven Leadership</h2>
+                        <p>A track record of excellence in health, education, and community support.</p>
+                        <a href="#achievements" class="cta-button">View Achievements</a>
+                    </div>
+                </div>
+                <!-- Hero Slide 5: Community and Empowerment Focus -->
+                <div class="swiper-slide">
+                    <img src="images/community2.jpeg" alt="Youth Empowerment">
+                    <div class="overlay">
+                        <h2>Empowering People</h2>
+                        <p>Strengthening communities through dedicated support and initiatives.</p>
+                        <a href="#community" class="cta-button">Get Involved</a>
+                    </div>
+                </div>
+                <!-- Hero Slide 6: Re-Election Campaign Emphasis -->
+                <div class="swiper-slide">
+                    <img src="images/2.jpg" alt="Re-Election Campaign">
+                    <div class="overlay">
+                        <h2>Your Future, Our Mission</h2>
+                        <p>Re-elect [Politician’s Name] for continued progress and growth.</p>
+                        <a href="#campaign" class="cta-button">Support the Campaign</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Navigation -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const swiper = new Swiper('.swiper-container', {
+                // Optional parameters
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    // When window width is <= 640px
+                    640: {
+                        slidesPerView: 1,
+                        spaceBetween: 10
+                    },
+                    // When window width is <= 768px
+                    768: {
+                        slidesPerView: 1.5,
+                        spaceBetween: 20
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
