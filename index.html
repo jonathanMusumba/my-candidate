@@ -82,6 +82,7 @@
     </script>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
 </head>
 
 
@@ -141,115 +142,189 @@
         </div>
     </section>
 
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="images/1.jpg" alt="Hon. Eng. Kyobe Luke Inyensiko">
+            </div>
+            <div class="about-content">
+                <h2>About Hon. Eng. Kyobe Luke Inyensiko</h2>
+                <p>Hon. Eng. Kyobe Luke Inyensiko is the esteemed Member of Parliament representing Luuka North Constituency in the Parliament of the Republic of Uganda, serving since 2021. An accomplished engineer by profession, Hon. Kyobe has combined
+                    his technical expertise with a passion for leadership, making him a distinguished figure both in his community and in the national arena.</p>
+                <p>Hon. Kyobe's decision to stand for leadership was driven by a deep desire to access and utilize resources to bring transformative change to Luuka North and Luuka District as a whole. His vision is centered on development, empowerment,
+                    and the betterment of his people’s lives.</p>
+                <blockquote>
+                    "Leadership is not just about holding a position; it's about using that position to empower others, to transform communities, and to leave a lasting legacy of positive change."
+                    <span class="quote-author">– Eng. Kyobe Luke</span>
+                </blockquote>
+                <button id="read-aloud-btn">🔊 Read Aloud</button>
+            </div>
+        </div>
+    </section>
+
+
 
     <!-- Achievements/Introduction Section -->
     <section id="achievements" class="achievements fade-in">
         <h2>Achievements</h2>
-        <p>During the last term, we achieved significant milestones in various sectors including Health, Education, Social Economic Development, Community Support, and Monitoring.</p>
+        <p>During the last term, we achieved significant milestones across various sectors including Health, Education, Social Economic Development, Community Support, and Monitoring. Below is a chronological summary of our achievements.</p>
 
-        <!-- Health Category -->
-        <div class="category">
-            <h3>Health</h3>
-            <div class="image-grid">
-                <div class="image-item">
-                    <img src="images/health1.jpg" alt="Health Achievement 1">
-                    <div class="caption">Upgraded local clinics</div>
-                </div>
-                <div class="image-item">
-                    <img src="images/health2.jpg" alt="Health Achievement 2">
-                    <div class="caption">Free medical camps</div>
-                </div>
-                <div class="image-item">
-                    <img src="images/health3.jpg" alt="Health Achievement 3">
-                    <div class="caption">New hospital equipment</div>
+        <!-- Categories -->
+        <div class="categories">
+            <!-- Health Category -->
+            <div class="category" id="health">
+                <h3>Health</h3>
+                <div class="posts grid">
+                    <div class="post">
+                        <div class="post-image">
+                            <img src="images/Ambulance 2.jpeg" alt="Upgraded local clinics" class="thumbnail" onclick="openModal(this)">
+                        </div>
+                        <div class="post-details">
+                            <span class="date">August 2015</span>
+                            <h4>Donated an Ambulance</h4>
+                        </div>
+                        <div class="post-content">
+                            <p class="short-content">In 2015, we donated an ambulance that saved many lives, especially for women...</p>
+                            <p class="full-content">In 2015, we donated an ambulance that played a crucial role in saving many lives, particularly benefiting women. This ambulance was instrumental in providing timely medical assistance in remote areas, improving health outcomes
+                                significantly. It is a testament to our commitment to enhancing healthcare accessibility and emergency response capabilities in our community...</p>
+                            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Read More</a>
+                        </div>
+                    </div>
+                    <!-- Post 2-->
+                    <div class="post">
+                        <div class="post-image">
+                            <img src="images/health1.jpg" alt="Upgraded local clinics" class="thumbnail" onclick="openModal(this)">
+                        </div>
+                        <div class="post-details">
+                            <span class="date">August 2024</span>
+                            <h4>Upgraded local clinics</h4>
+                        </div>
+                        <div class="post-content">
+                            <h4>Renovated the Operating Theatre</h4>
+                            <p class="short-content">Renovated the operating theatre at Kiyunga Health Center IV, improving surgical capabilities...</p>
+                            <p class="full-content">We undertook a major renovation of the operating theatre at Kiyunga Health Center IV, which serves as the District's primary health unit. This renovation included upgrading equipment, improving sanitation standards, and enhancing
+                                the overall functionality of the facility. These improvements have greatly increased the quality of surgical care provided to the local population...</p>
+                            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Read More</a>
+                        </div>
+                    </div>
+                    <!-- Post 3-->
+                    <div class="post">
+                        <div class="post-details">
+                            <span class="date">August 2024</span>
+                            <h4>Shade for Maternity Ward</h4>
+                        </div>
+                        <div class="post-content">
+
+                            <p class="short-content">Installed shade structures for patients and caregivers in the maternity ward...</p>
+                            <p class="full-content">We installed shade structures to provide relief to patients and caregivers in the maternity ward during hot days. This initiative aimed to enhance comfort and protect individuals from excessive heat while waiting or receiving
+                                care. The added shade has significantly improved the overall experience for those visiting the maternity ward...</p>
+                            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Read More</a>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-image">
+                            <img src="images/health1.jpg" alt="Upgraded local clinics" class="thumbnail" onclick="openModal(this)">
+                        </div>
+                        <div class="post-details">
+                            <span class="date">August 2024</span>
+                            <h4>Doctor at Kiyunga Health Center IV</h4>
+                        </div>
+                        <div class="post-content">
+
+                            <p class="short-content">Collaborated with the Ministry of Public Services to ensure a fully settled doctor at Kiyunga Health Center IV...</p>
+                            <p class="full-content">We worked closely with the Ministry of Public Services to ensure the permanent placement of a doctor at Kiyunga Health Center IV. This collaboration aimed to address the critical shortage of medical professionals and ensure
+                                continuous, high-quality healthcare services for the community. The presence of a fully settled doctor has greatly improved patient care and service availability...</p>
+                            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Read More</a>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-image">
+                            <img src="images/health2.jpg" alt="Upgraded local clinics" class="thumbnail" onclick="openModal(this)">
+                        </div>
+                        <div class="post-details">
+                            <span class="date">August 2024</span>
+                            <h4>Blood Supply</h4>
+                        </div>
+                        <div class="post-content">
+
+                            <p class="short-content">Collaborated with the government and partners to maintain a steady blood supply at the facility...</p>
+                            <p class="full-content">We partnered with the government and various organizations to ensure a consistent supply of blood at our health facility. This initiative was crucial in addressing emergencies and providing essential blood transfusions for
+                                patients in need. Regular blood donations and storage practices have enhanced our ability to manage critical situations effectively...</p>
+                            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Read More</a>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-image">
+                            <img src="images/20.jpg" alt="Upgraded local clinics" class="thumbnail" onclick="openModal(this)">
+                        </div>
+                        <div class="post-details">
+                            <span class="date">May 2022</span>
+                            <h4>Mattresses, Beds, and Bed Sheets</h4>
+                        </div>
+                        <div class="post-content">
+
+                            <p class="short-content">Donated essential items including mattresses, beds, and bed sheets to Kiyunga Health Centre IV...</p>
+                            <p class="full-content">We made significant donations to Kiyunga Health Centre IV, including mattresses, beds, and bed sheets. These essential items were provided to improve patient comfort and hygiene within the facility. Our contribution has helped
+                                to enhance the quality of care and ensure that patients have a more comfortable and supportive environment during their stay...</p>
+                            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Read More</a>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-image">
+                            <img src="images/health1.jpg" alt="Upgraded local clinics" class="thumbnail" onclick="openModal(this)">
+                        </div>
+                        <div class="post-details">
+                            <span class="date">October 2023</span>
+                            <h4>Mattresses Health Centre IIs</h4>
+                        </div>
+                        <div class="post-content">
+                            <p class="short-content">Donated mattresses and other essential items to Mattresse Health Centre IIs to support healthcare delivery...</p>
+                            <p class="full-content">We provided mattresses, beds, and other essential items to Mattresse Health Centre IIs. This donation was aimed at improving the facilities and ensuring that patients receive adequate comfort and care. By prioritizing the health
+                                and well-being of voters, we have contributed to better healthcare outcomes and support for our community...</p>
+                            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Read More</a>
+                        </div>
+                    </div>
+
+                    <!-- Repeat for more Health posts -->
                 </div>
             </div>
-        </div>
+            <div class="category" id="social-economic-development">
+                <h3>Social Economic Development</h3>
+                <div class="posts grid">
+                    <div class="post">
+                        <div class="post-details">
+                            <span class="date">March 2022</span>
+                            <h4>Gave Out Land for Luuka Technical Institute Construction</h4>
+                        </div>
+                        <div class="post-content">
 
-        <!-- Education Category -->
-        <div class="category">
-            <h3>Education</h3>
-            <div class="image-grid">
-                <div class="image-item">
-                    <img src="images/education1.jpeg" alt="Education Achievement 1">
-                    <div class="caption">New school buildings</div>
-                </div>
-                <div class="image-item">
-                    <img src="images/education2.jpeg" alt="Education Achievement 2">
-                    <div class="caption">Scholarship programs</div>
-                </div>
-                <div class="image-item">
-                    <img src="images/education3.jpeg" alt="Education Achievement 3">
-                    <div class="caption">Teacher training initiatives</div>
-                </div>
-            </div>
-        </div>
+                            <p class="short-content">Donated land for the establishment of Luuka Technical Institute in Naigobya, Bukoma sub-county...</p>
+                            <p class="full-content">We provided land for the construction of the Luuka Technical Institute located in Naigobya, Bukoma sub-county. This educational facility is designed to offer vocational training and skills development to the local youth, equipping
+                                them with the necessary skills to improve their employment prospects and contribute to regional development...</p>
+                            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Read More</a>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-details">
+                            <span class="date">February 2024</span>
+                            <h4>Gave Out Land for Suga Factory Construction</h4>
+                        </div>
+                        <div class="post-content">
 
-        <!-- Social Economic Development Category -->
-        <div class="category">
-            <h3>Social Economic Development</h3>
-            <div class="image-grid">
-                <div class="image-item">
-                    <img src="images/economic1.jpg" alt="Economic Development 1">
-                    <div class="caption">New business centers</div>
-                </div>
-                <div class="image-item">
-                    <img src="images/economic2.jpg" alt="Economic Development 2">
-                    <div class="caption">Microfinance support</div>
-                </div>
-                <div class="image-item">
-                    <img src="images/economic3.jpg" alt="Economic Development 3">
-                    <div class="caption">Job creation initiatives</div>
-                </div>
-            </div>
-        </div>
+                            <p class="short-content">Provided land for the construction of the Suga Factory in Luuka, boosting local economic development...</p>
+                            <p class="full-content">We donated land for the construction of the Suga Factory in Luuka. This initiative aims to stimulate local economic growth by creating job opportunities and fostering industrial development in the region. The factory is expected
+                                to contribute significantly to the local economy and provide various benefits to the community...</p>
+                            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Read More</a>
+                        </div>
+                    </div>
 
-        <!-- Community Support Category -->
-        <div class="category">
-            <h3>Community Support</h3>
-            <div class="image-grid">
-                <div class="image-item">
-                    <img src="images/community1.jpeg" alt="Community Support 1">
-                    <div class="caption">Community centers</div>
-                </div>
-                <div class="image-item">
-                    <img src="images/community2.jpeg" alt="Community Support 2">
-                    <div class="caption">Social welfare programs</div>
-                </div>
-                <div class="image-item">
-                    <img src="images/community3.jpg" alt="Community Support 3">
-                    <div class="caption">Youth empowerment</div>
-                </div>
-                <div class="image-item">
-                    <img src="images/community4.jpg" alt="Community Support 3">
-                    <div class="caption">Youth empowerment</div>
-                </div>
-                <div class="image-item">
-                    <img src="images/community5.jpg" alt="Community Support 3">
-                    <div class="caption">Youth empowerment</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Monitoring Category -->
-        <div class="category">
-            <h3>Monitoring</h3>
-            <div class="image-grid">
-                <div class="image-item">
-                    <img src="images/monitoring1.jpg" alt="Monitoring 1">
-                    <div class="caption">Infrastructure monitoring</div>
-                </div>
-                <div class="image-item">
-                    <img src="images/monitoring2.jpg" alt="Monitoring 2">
-                    <div class="caption">Health program assessments</div>
-                </div>
-                <div class="image-item">
-                    <img src="images/monitoring3.jpg" alt="Monitoring 3">
-                    <div class="caption">Education quality checks</div>
+                    <!-- Repeat for more Social Economic Development posts -->
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- Vision/Plans Section -->
     <section id="vision" class="vision">
@@ -499,13 +574,61 @@
         Your browser does not support the audio element.
     </audio>
 
+    <section id="subscription-section">
+        <h2>Subscribe to Our Newsletter</h2>
+        <div id="mc_embed_shell">
+            <form action="https://github.us11.list-manage.com/subscribe/post?u=c6c601ebea13d4043b4ef7195&amp;id=496097af85&amp;f_id=00f619e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+                <div id="mc_embed_signup_scroll">
+                    <div class="indicates-required">
+                        <span class="asterisk"></span>
+                    </div>
+                    <div class="mc-field-group">
+                        <label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label>
+                        <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value="">
+                    </div>
+                    <div id="mce-responses" class="clear foot">
+                        <div class="response" id="mce-error-response" style="display: none;"></div>
+                        <div class="response" id="mce-success-response" style="display: none;"></div>
+                    </div>
+                    <div aria-hidden="true" style="position: absolute; left: -5000px;">
+                        <input type="text" name="b_c6c601ebea13d4043b4ef7195_496097af85" tabindex="-1" value="">
+                    </div>
+                    <div class="optionalParent">
+                        <div class="clear foot">
+                            <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- Footer -->
+        <footer>
+            <p id="copyright"></p>
+        </footer>
 
-    <!-- Footer -->
-    <footer>
-        <p id="copyright"></p>
-    </footer>
-
-    <script src="js/script.js"></script>
+        <script src="js/script.js"></script>
+        <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+        <script type="text/javascript">
+            (function($) {
+                window.fnames = new Array();
+                window.ftypes = new Array();
+                fnames[0] = 'EMAIL';
+                ftypes[0] = 'email';
+                fnames[1] = 'FNAME';
+                ftypes[1] = 'text';
+                fnames[2] = 'LNAME';
+                ftypes[2] = 'text';
+                fnames[3] = 'ADDRESS';
+                ftypes[3] = 'address';
+                fnames[4] = 'PHONE';
+                ftypes[4] = 'phone';
+                fnames[5] = 'BIRTHDAY';
+                ftypes[5] = 'birthday';
+                fnames[6] = 'COMPANY';
+                ftypes[6] = 'text';
+            }(jQuery));
+            var $mcj = jQuery.noConflict(true);
+        </script>
 </body>
 
 </html>

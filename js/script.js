@@ -26,6 +26,73 @@ document.addEventListener("DOMContentLoaded", function() {
         images[currentIndex].classList.add('active');
     }, 4000);
 });
+const navbar = document.querySelector('.navbar ul');
+navbar.classList.toggle('active');
+
+// Scroll Animation for About Section
+const aboutSection = document.querySelector('.about-section');
+const readAloudBtn = document.getElementById('read-aloud-btn');
+const aboutContent = aboutSection.querySelector('.about-content');
+const paragraphs = aboutContent.querySelectorAll('p, blockquote');
+
+// Scroll Observer for Section Animation
+const observerOptions = {
+    root: null,
+    threshold: 0.1,
+};
+
+const sectionObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            aboutSection.classList.add('visible');
+            observer.unobserve(aboutSection);
+        }
+    });
+}, observerOptions);
+
+sectionObserver.observe(aboutSection);
+
+// Read Aloud Functionality
+readAloudBtn.addEventListener('click', () => {
+    if ('speechSynthesis' in window) {
+        speechSynthesis.cancel(); // Stop any current speech
+        let utteranceQueue = [];
+
+        paragraphs.forEach(paragraph => {
+            const text = paragraph.innerText;
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.rate = 1; // Adjust speech rate if needed
+            utterance.voice = speechSynthesis.getVoices().find(voice => voice.lang === 'en-US') || speechSynthesis.getVoices()[0];
+
+            // Highlighting Words
+            utterance.onboundary = (event) => {
+                const charIndex = event.charIndex;
+                const charLength = event.charLength;
+                const content = paragraph.innerText;
+                const before = content.substring(0, charIndex);
+                const word = content.substring(charIndex, charIndex + charLength);
+                const after = content.substring(charIndex + charLength);
+
+                paragraph.innerHTML = `${before}<span class="highlighted">${word}</span>${after}`;
+            };
+
+            utterance.onend = () => {
+                paragraph.innerHTML = paragraph.innerText; // Remove highlighting after speaking
+            };
+
+            utteranceQueue.push(utterance);
+        });
+
+        // Speak each utterance sequentially
+        utteranceQueue.forEach(utterance => {
+            window.speechSynthesis.speak(utterance);
+        });
+
+    } else {
+        alert('Sorry, your browser does not support speech synthesis.');
+    }
+});
+
 window.addEventListener('load', function() {
     const audio = document.getElementById('background-sound');
     setTimeout(() => {
@@ -253,3 +320,61 @@ function currentSlide(index) {
 }
 
 setInterval(showNextTestimonial, 3000);
+
+function openModal(img) {
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    const captionText = document.getElementById("caption");
+
+    modal.style.display = "block";
+    modalImg.src = img.src;
+    captionText.innerHTML = img.alt;
+}
+
+function closeModal() {
+    const modal = document.getElementById("imageModal");
+    modal.style.display = "none";
+}
+
+// Optional: Close modal when clicking outside of the image
+window.onclick = function(event) {
+    const modal = document.getElementById("imageModal");
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+}
+
+function toggleContent(link) {
+    const postContent = link.parentElement;
+    const shortContent = postContent.querySelector('.short-content');
+    const fullContent = postContent.querySelector('.full-content');
+
+    if (fullContent.style.display === "none") {
+        fullContent.style.display = "block";
+        shortContent.style.display = "none";
+        link.textContent = "Read Less";
+    } else {
+        fullContent.style.display = "none";
+        shortContent.style.display = "block";
+        link.textContent = "Read More";
+    }
+}
+const posts = document.querySelectorAll('.post');
+
+// Create an intersection observer
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+        } else {
+            entry.target.classList.remove('fade-in');
+        }
+    });
+}, {
+    threshold: 0.1
+}); // Trigger when 10% of the element is visible
+
+// Observe each post
+posts.forEach(post => {
+    observer.observe(post);
+});

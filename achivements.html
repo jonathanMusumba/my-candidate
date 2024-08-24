@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievements & Comments</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        
+        section {
+            padding: 20px;
+        }
+        
+        .achievements {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .achievements h2 {
+            margin-top: 0;
+        }
+        
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .swiper-slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+        
+        .category {
+            width: 100%;
+        }
+        
+        .post-item {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .post-item img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .post-content {
+            padding: 10px;
+            flex-grow: 1;
+        }
+        
+        .post-content h4 {
+            margin: 0;
+        }
+        
+        .post-interactions {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .post-interactions span,
+        .post-interactions a {
+            cursor: pointer;
+        }
+        
+        .view-more {
+            display: inline-block;
+            margin-top: 15px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        
+        .view-more:hover {
+            text-decoration: underline;
+        }
+        /* Comment Form Styles */
+        
+        .comment-form {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        
+        .comment-form h2 {
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        textarea {
+            resize: vertical;
+        }
+        
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+        #commentsDisplay {
+            margin-top: 20px;
+        }
+        
+        #commentsList {
+            list-style: none;
+            padding: 0;
+        }
+        
+        #commentsList li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        #commentsList li:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Achievements Section -->
+    <section id="achievements" class="achievements">
+        <h2>Achievements</h2>
+        <p>During the last term, we achieved significant milestones in various sectors including Health, Education, Social Economic Development, Community Support, and Monitoring.</p>
+
+        <!-- Categories Carousel -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <!-- Health Category -->
+                <div class="swiper-slide">
+                    <div class="category">
+                        <h3>Health</h3>
+                        <div class="post-slider">
+                            <!-- Post 1 -->
+                            <div class="post-item">
+                                <img src="images/health1.jpg" alt="Health Achievement 1">
+                                <div class="post-content">
+                                    <h4>Upgraded local clinics</h4>
+                                    <p>Details about upgrading local clinics...</p>
+                                    <div class="post-interactions">
+                                        <span class="like">👍</span> <span class="dislike">👎</span> <span class="reactions">😊 😡 😍</span>
+                                        <a href="posts.html?category=health" class="view-more">💬 Comment</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Additional Posts -->
+                        </div>
+                        <a href="posts.html?category=health" class="view-more">View More Health Achievements</a>
+                    </div>
+                </div>
+
+                <!-- Education Category -->
+                <div class="swiper-slide">
+                    <div class="category">
+                        <h3>Education</h3>
+                        <div class="post-slider">
+                            <div class="post-item">
+                                <img src="images/education1.jpg" alt="Education Achievement 1">
+                                <div class="post-content">
+                                    <h4>New school buildings</h4>
+                                    <p>Details about new school buildings...</p>
+                                    <div class="post-interactions">
+                                        <span class="like">👍</span> <span class="dislike">👎</span> <span class="reactions">😊 😡 😍</span>
+                                        <a href="posts.html?category=education" class="view-more">💬 Comment</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Additional Posts -->
+                        </div>
+                        <a href="posts.html?category=education" class="view-more">View More Education Achievements</a>
+                    </div>
+                </div>
+
+                <!-- Social Economic Development Category -->
+                <div class="swiper-slide">
+                    <div class="category">
+                        <h3>Social Economic Development</h3>
+                        <div class="post-slider">
+                            <div class="post-item">
+                                <img src="images/economic1.jpg" alt="Economic Development 1">
+                                <div class="post-content">
+                                    <h4>New business centers</h4>
+                                    <p>Details about new business centers...</p>
+                                    <div class="post-interactions">
+                                        <span class="like">👍</span> <span class="dislike">👎</span> <span class="reactions">😊 😡 😍</span>
+                                        <a href="posts.html?category=economic" class="view-more">💬 Comment</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Additional Posts -->
+                        </div>
+                        <a href="posts.html?category=economic" class="view-more">View More Economic Development Achievements</a>
+                    </div>
+                </div>
+
+                <!-- Community Support Category -->
+                <div class="swiper-slide">
+                    <div class="category">
+                        <h3>Community Support</h3>
+                        <div class="post-slider">
+                            <div class="post-item">
+                                <img src="images/community1.jpg" alt="Community Support 1">
+                                <div class="post-content">
+                                    <h4>Community centers</h4>
+                                    <p>Details about community centers...</p>
+                                    <div class="post-interactions">
+                                        <span class="like">👍</span> <span class="dislike">👎</span> <span class="reactions">😊 😡 😍</span>
+                                        <a href="posts.html?category=community" class="view-more">💬 Comment</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Additional Posts -->
+                        </div>
+                        <a href="posts.html?category=community" class="view-more">View More Community Support Achievements</a>
+                    </div>
+                </div>
+
+                <!-- Monitoring Category -->
+                <div class="swiper-slide">
+                    <div class="category">
+                        <h3>Monitoring</h3>
+                        <div class="post-slider">
+                            <div class="post-item">
+                                <img src="images/monitoring1.jpg" alt="Monitoring 1">
+                                <div class="post-content">
+                                    <h4>Infrastructure monitoring</h4>
+                                    <p>Details about infrastructure monitoring...</p>
+                                    <div class="post-interactions">
+                                        <span class="like">👍</span> <span class="dislike">👎</span> <span class="reactions">😊 😡 😍</span>
+                                        <a href="posts.html?category=monitoring" class="view-more">💬 Comment</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Additional Posts -->
+                        </div>
+                        <a href="posts.html?category=monitoring" class="view-more">View More Monitoring Achievements</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Navigation -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>
+
+    <!-- Comment Form Section -->
+    <section id="comment-form" class="comment-form">
+        <h2>Leave a Comment</h2>
+        <form id="commentForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="comment">Comment:</label>
+                <textarea id="comment" name="comment" rows="4" required></textarea>
+            </div>
+            <button type="submit">Submit Comment</button>
+        </form>
+
+        <!-- Comments Display -->
+        <div id="commentsDisplay">
+            <h3>Comments:</h3>
+            <ul id="commentsList">
+                <!-- Comments will be displayed here -->
+            </ul>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        // Initialize Swiper
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+
+        // Handle comment form submission
+        document.getElementById('commentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const comment = document.getElementById('comment').value;
+
+            // Create a new comment item
+            const commentItem = document.createElement('li');
+            commentItem.innerHTML = `<strong>${name} (${email})</strong><p>${comment}</p>`;
+
+            // Add the new comment to the list
+            document.getElementById('commentsList').appendChild(commentItem);
+
+            // Clear the form
+            document.getElementById('commentForm').reset();
+        });
+    </script>
+</body>
+
+</html>
