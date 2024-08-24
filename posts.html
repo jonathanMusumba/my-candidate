@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <style>
+        /* General Styles */
+        
+        body {
+            font-family: Arial, sans-serif;
+        }
+        /* Grid Layout for Posts */
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        /* Post Styles */
+        
+        .post {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            padding: 10px;
+            opacity: 0;
+            transform: translateY(20px);
+            /* Start off-screen */
+        }
+        /* Animation for Posts */
+        
+        .post.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+            /* Move to original position */
+        }
+        
+        .post:hover {
+            transform: translateY(-5px);
+        }
+        /* Circular Image Thumbnail */
+        
+        .thumbnail {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        
+        .thumbnail img {
+            width: 100%;
+            height: auto;
+        }
+        /* Post Content */
+        
+        .post-content {
+            position: relative;
+        }
+        
+        .short-content {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        .full-content {
+            display: none;
+        }
+        
+        .read-more {
+            color: #007bff;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        /* Modal Styles */
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 80%;
+            max-height: 80%;
+        }
+        
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        #caption {
+            margin: auto;
+            display: block;
+            text-align: center;
+            color: #fff;
+            padding: 10px 20px;
+            height: 150px;
+        }
+        /* Responsive Styles */
+        
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            }
+            .thumbnail {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Achievements/Introduction Section -->
+    <section id="achievements" class="achievements fade-in">
+        <h2>Achievements</h2>
+        <p>During the last term, we achieved significant milestones across various sectors including Health, Education, Social Economic Development, Community Support, and Monitoring. Below is a chronological summary of our achievements.</p>
+
+        <!-- Categories -->
+        <div class="categories">
+            <!-- Health Category -->
+            <div class="category" id="health">
+                <h3>Health</h3>
+                <div class="posts grid">
+                    <div class="post">
+                        <div class="post-image">
+                            <img src="images/Ambulance 2.jpeg" alt="Upgraded local clinics" class="thumbnail" onclick="openModal(this)">
+                        </div>
+                        <div class="post-details">
+                            <span class="date">August 2015</span>
+                            <h4>Donated an Ambulance</h4>
+                        </div>
+                        <div class="post-content">
+                            <p class="short-content">In 2015, we donated an ambulance that saved many lives, especially for women...</p>
+                            <p class="full-content">In 2015, we donated an ambulance that played a crucial role in saving many lives, particularly benefiting women. This ambulance was instrumental in providing timely medical assistance in remote areas, improving health outcomes
+                                significantly. It is a testament to our commitment to enhancing healthcare accessibility and emergency response capabilities in our community...</p>
+                            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Read More</a>
+                        </div>
+                    </div>
+                    <!-- Post 2-->
+                    <div class="post">
+                        <div class="post-image">
+                            <img src="images/health1.jpg" alt="Upgraded local clinics" class="thumbnail" onclick="openModal(this)">
+                        </div>
+                        <div class="post-details">
+                            <span class="date">August 2024</span>
+                            <h4>Upgraded local clinics</h4>
+                        </div>
+                        <div class="post-content">
+                            <h4>Renovated the Operating Theatre</h4>
+                            <p class="short-content">Renovated the operating theatre at Kiyunga Health Center IV, improving surgical capabilities...</p>
+                            <p class="full-content">We undertook a major renovation of the operating theatre at Kiyunga Health Center IV, which serves as the District's primary health unit. This renovation included upgrading equipment, improving sanitation standards, and enhancing
+                                the overall functionality of the facility. These improvements have greatly increased the quality of surgical care provided to the local population...</p>
+                            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Read More</a>
+                        </div>
+                    </div>
+                    <!-- Post 3-->
+                    <div class="post">
+                        <div class="post-details">
+                            <span class="date">August 2024</span>
+                            <h4>Shade for Maternity Ward</h4>
+                        </div>
+                        <div class="post-content">
+
+                            <p class="short-content">Installed shade structures for patients and caregivers in the maternity ward...</p>
+                            <p class="full-content">We installed shade structures to provide relief to patients and caregivers in the maternity ward during hot days. This initiative aimed to enhance comfort and protect individuals from excessive heat while waiting or receiving
+                                care. The added shade has significantly improved the overall experience for those visiting the maternity ward...</p>
+                            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Read More</a>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-image">
+                            <img src="images/health1.jpg" alt="Upgraded local clinics" class="thumbnail" onclick="openModal(this)">
+                        </div>
+                        <div class="post-details">
+                            <span class="date">August 2024</span>
+                            <h4>Doctor at Kiyunga Health Center IV</h4>
+                        </div>
+                        <div class="post-content">
+
+                            <p class="short-content">Collaborated with the Ministry of Public Services to ensure a fully settled doctor at Kiyunga Health Center IV...</p>
+                            <p class="full-content">We worked closely with the Ministry of Public Services to ensure the permanent placement of a doctor at Kiyunga Health Center IV. This collaboration aimed to address the critical shortage of medical professionals and ensure
+                                continuous, high-quality healthcare services for the community. The presence of a fully settled doctor has greatly improved patient care and service availability...</p>
+                            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Read More</a>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-image">
+                            <img src="images/health2.jpg" alt="Upgraded local clinics" class="thumbnail" onclick="openModal(this)">
+                        </div>
+                        <div class="post-details">
+                            <span class="date">August 2024</span>
+                            <h4>Blood Supply</h4>
+                        </div>
+                        <div class="post-content">
+
+                            <p class="short-content">Collaborated with the government and partners to maintain a steady blood supply at the facility...</p>
+                            <p class="full-content">We partnered with the government and various organizations to ensure a consistent supply of blood at our health facility. This initiative was crucial in addressing emergencies and providing essential blood transfusions for
+                                patients in need. Regular blood donations and storage practices have enhanced our ability to manage critical situations effectively...</p>
+                            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Read More</a>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-image">
+                            <img src="images/20.jpg" alt="Upgraded local clinics" class="thumbnail" onclick="openModal(this)">
+                        </div>
+                        <div class="post-details">
+                            <span class="date">May 2022</span>
+                            <h4>Mattresses, Beds, and Bed Sheets</h4>
+                        </div>
+                        <div class="post-content">
+
+                            <p class="short-content">Donated essential items including mattresses, beds, and bed sheets to Kiyunga Health Centre IV...</p>
+                            <p class="full-content">We made significant donations to Kiyunga Health Centre IV, including mattresses, beds, and bed sheets. These essential items were provided to improve patient comfort and hygiene within the facility. Our contribution has helped
+                                to enhance the quality of care and ensure that patients have a more comfortable and supportive environment during their stay...</p>
+                            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Read More</a>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-image">
+                            <img src="images/health1.jpg" alt="Upgraded local clinics" class="thumbnail" onclick="openModal(this)">
+                        </div>
+                        <div class="post-details">
+                            <span class="date">October 2023</span>
+                            <h4>Mattresses Health Centre IIs</h4>
+                        </div>
+                        <div class="post-content">
+                            <p class="short-content">Donated mattresses and other essential items to Mattresse Health Centre IIs to support healthcare delivery...</p>
+                            <p class="full-content">We provided mattresses, beds, and other essential items to Mattresse Health Centre IIs. This donation was aimed at improving the facilities and ensuring that patients receive adequate comfort and care. By prioritizing the health
+                                and well-being of voters, we have contributed to better healthcare outcomes and support for our community...</p>
+                            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Read More</a>
+                        </div>
+                    </div>
+
+                    <!-- Repeat for more Health posts -->
+                </div>
+            </div>
+
+            <!-- Education Category -->
+            <div class="category" id="education">
+                <h3>Education</h3>
+                <div class="posts grid">
+                    <div class="post">
+                        <div class="post-image">
+                            <img src="images/education1.jpeg" alt="New school buildings" class="thumbnail" onclick="openModal(this)">
+                        </div>
+                        <div class="post-details">
+                            <span class="date">May 2024</span>
+                            <h4>New school buildings</h4>
+                        </div>
+                        <div class="post-content">
+                            <p class="short-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem at ligula vehicula...</p>
+                            <p class="full-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem at ligula vehicula, sit amet suscipit turpis tincidunt. Nulla facilisi. Donec at dignissim odio. Vivamus non dapibus arcu. Proin vel sapien ut augue
+                                fermentum blandit et vitae urna. Nullam non nunc odio. Fusce vel ultrices quam, sed tempor libero. Nulla facilisi...</p>
+                            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Read More</a>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-image">
+                            <img src="images/education1.jpeg" alt="New school buildings" class="thumbnail" onclick="openModal(this)">
+                        </div>
+                        <div class="post-details">
+                            <span class="date">May 2024</span>
+                            <h4>New school buildings</h4>
+                        </div>
+                        <div class="post-content">
+                            <p class="short-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem at ligula vehicula...</p>
+                            <p class="full-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem at ligula vehicula, sit amet suscipit turpis tincidunt. Nulla facilisi. Donec at dignissim odio. Vivamus non dapibus arcu. Proin vel sapien ut augue
+                                fermentum blandit et vitae urna. Nullam non nunc odio. Fusce vel ultrices quam, sed tempor libero. Nulla facilisi...</p>
+                            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Read More</a>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-image">
+                            <img src="images/education1.jpeg" alt="New school buildings" class="thumbnail" onclick="openModal(this)">
+                        </div>
+                        <div class="post-details">
+                            <span class="date">May 2024</span>
+                            <h4>New school buildings</h4>
+                        </div>
+                        <div class="post-content">
+                            <p class="short-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem at ligula vehicula...</p>
+                            <p class="full-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem at ligula vehicula, sit amet suscipit turpis tincidunt. Nulla facilisi. Donec at dignissim odio. Vivamus non dapibus arcu. Proin vel sapien ut augue
+                                fermentum blandit et vitae urna. Nullam non nunc odio. Fusce vel ultrices quam, sed tempor libero. Nulla facilisi...</p>
+                            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Read More</a>
+                        </div>
+                    </div>
+                    <!-- Repeat for more Education posts -->
+                </div>
+            </div>
+
+            <!-- Social Economic Development Category -->
+            <div class="category" id="social-economic-development">
+                <h3>Social Economic Development</h3>
+                <div class="posts grid">
+                    <div class="post">
+                        <div class="post-details">
+                            <span class="date">March 2022</span>
+                            <h4>Gave Out Land for Luuka Technical Institute Construction</h4>
+                        </div>
+                        <div class="post-content">
+
+                            <p class="short-content">Donated land for the establishment of Luuka Technical Institute in Naigobya, Bukoma sub-county...</p>
+                            <p class="full-content">We provided land for the construction of the Luuka Technical Institute located in Naigobya, Bukoma sub-county. This educational facility is designed to offer vocational training and skills development to the local youth, equipping
+                                them with the necessary skills to improve their employment prospects and contribute to regional development...</p>
+                            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Read More</a>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-details">
+                            <span class="date">February 2024</span>
+                            <h4>Gave Out Land for Suga Factory Construction</h4>
+                        </div>
+                        <div class="post-content">
+
+                            <p class="short-content">Provided land for the construction of the Suga Factory in Luuka, boosting local economic development...</p>
+                            <p class="full-content">We donated land for the construction of the Suga Factory in Luuka. This initiative aims to stimulate local economic growth by creating job opportunities and fostering industrial development in the region. The factory is expected
+                                to contribute significantly to the local economy and provide various benefits to the community...</p>
+                            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Read More</a>
+                        </div>
+                    </div>
+
+                    <!-- Repeat for more Social Economic Development posts -->
+                </div>
+            </div>
+
+            <!-- Community Support Category -->
+            <div class="category" id="community-support">
+                <h3>Community Support</h3>
+                <div class="posts grid">
+                    <div class="post">
+                        <div class="post-image">
+                            <img src="images/community1.jpeg" alt="Community centers" class="thumbnail" onclick="openModal(this)">
+                        </div>
+                        <div class="post-details">
+                            <span class="date">November 2023</span>
+                            <h4>Community centers</h4>
+                        </div>
+                        <div class="post-content">
+                            <p class="short-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem at ligula vehicula...</p>
+                            <p class="full-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem at ligula vehicula, sit amet suscipit turpis tincidunt. Nulla facilisi. Donec at dignissim odio. Vivamus non dapibus arcu. Proin vel sapien ut augue
+                                fermentum blandit et vitae urna. Nullam non nunc odio. Fusce vel ultrices quam, sed tempor libero. Nulla facilisi...</p>
+                            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Read More</a>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-image">
+                            <img src="images/community1.jpeg" alt="Community centers" class="thumbnail" onclick="openModal(this)">
+                        </div>
+                        <div class="post-details">
+                            <span class="date">November 2023</span>
+                            <h4>Community centers</h4>
+                        </div>
+                        <div class="post-content">
+                            <p class="short-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem at ligula vehicula...</p>
+                            <p class="full-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem at ligula vehicula, sit amet suscipit turpis tincidunt. Nulla facilisi. Donec at dignissim odio. Vivamus non dapibus arcu. Proin vel sapien ut augue
+                                fermentum blandit et vitae urna. Nullam non nunc odio. Fusce vel ultrices quam, sed tempor libero. Nulla facilisi...</p>
+                            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Read More</a>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-image">
+                            <img src="images/community1.jpeg" alt="Community centers" class="thumbnail" onclick="openModal(this)">
+                        </div>
+                        <div class="post-details">
+                            <span class="date">November 2023</span>
+                            <h4>Community centers</h4>
+                        </div>
+                        <div class="post-content">
+                            <p class="short-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem at ligula vehicula...</p>
+                            <p class="full-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem at ligula vehicula, sit amet suscipit turpis tincidunt. Nulla facilisi. Donec at dignissim odio. Vivamus non dapibus arcu. Proin vel sapien ut augue
+                                fermentum blandit et vitae urna. Nullam non nunc odio. Fusce vel ultrices quam, sed tempor libero. Nulla facilisi...</p>
+                            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Read More</a>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-image">
+                            <img src="images/community1.jpeg" alt="Community centers" class="thumbnail" onclick="openModal(this)">
+                        </div>
+                        <div class="post-details">
+                            <span class="date">November 2023</span>
+                            <h4>Community centers</h4>
+                        </div>
+                        <div class="post-content">
+                            <p class="short-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem at ligula vehicula...</p>
+                            <p class="full-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem at ligula vehicula, sit amet suscipit turpis tincidunt. Nulla facilisi. Donec at dignissim odio. Vivamus non dapibus arcu. Proin vel sapien ut augue
+                                fermentum blandit et vitae urna. Nullam non nunc odio. Fusce vel ultrices quam, sed tempor libero. Nulla facilisi...</p>
+                            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Read More</a>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-image">
+                            <img src="images/community1.jpeg" alt="Community centers" class="thumbnail" onclick="openModal(this)">
+                        </div>
+                        <div class="post-details">
+                            <span class="date">November 2023</span>
+                            <h4>Community centers</h4>
+                        </div>
+                        <div class="post-content">
+                            <p class="short-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem at ligula vehicula...</p>
+                            <p class="full-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem at ligula vehicula, sit amet suscipit turpis tincidunt. Nulla facilisi. Donec at dignissim odio. Vivamus non dapibus arcu. Proin vel sapien ut augue
+                                fermentum blandit et vitae urna. Nullam non nunc odio. Fusce vel ultrices quam, sed tempor libero. Nulla facilisi...</p>
+                            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Read More</a>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-image">
+                            <img src="images/community1.jpeg" alt="Community centers" class="thumbnail" onclick="openModal(this)">
+                        </div>
+                        <div class="post-details">
+                            <span class="date">November 2023</span>
+                            <h4>Community centers</h4>
+                        </div>
+                        <div class="post-content">
+                            <p class="short-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem at ligula vehicula...</p>
+                            <p class="full-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem at ligula vehicula, sit amet suscipit turpis tincidunt. Nulla facilisi. Donec at dignissim odio. Vivamus non dapibus arcu. Proin vel sapien ut augue
+                                fermentum blandit et vitae urna. Nullam non nunc odio. Fusce vel ultrices quam, sed tempor libero. Nulla facilisi...</p>
+                            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Read More</a>
+                        </div>
+                    </div>
+                    <!-- Repeat for more Community Support posts -->
+                </div>
+            </div>
+
+            <!-- Monitoring Category -->
+            <div class="category" id="monitoring">
+                <h3>Monitoring</h3>
+                <div class="posts grid">
+                    <div class="post">
+                        <div class="post-image">
+                            <img src="images/monitoring1.jpg" alt="Infrastructure monitoring" class="thumbnail" onclick="openModal(this)">
+                        </div>
+                        <div class="post-details">
+                            <span class="date">January 2024</span>
+                            <h4>Infrastructure monitoring</h4>
+                        </div>
+                        <div class="post-content">
+                            <p class="short-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem at ligula vehicula...</p>
+                            <p class="full-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem at ligula vehicula, sit amet suscipit turpis tincidunt. Nulla facilisi. Donec at dignissim odio. Vivamus non dapibus arcu. Proin vel sapien ut augue
+                                fermentum blandit et vitae urna. Nullam non nunc odio. Fusce vel ultrices quam, sed tempor libero. Nulla facilisi...</p>
+                            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Read More</a>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-image">
+                            <img src="images/monitoring1.jpg" alt="Infrastructure monitoring" class="thumbnail" onclick="openModal(this)">
+                        </div>
+                        <div class="post-details">
+                            <span class="date">January 2024</span>
+                            <h4>Infrastructure monitoring</h4>
+                        </div>
+                        <div class="post-content">
+                            <p class="short-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem at ligula vehicula...</p>
+                            <p class="full-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem at ligula vehicula, sit amet suscipit turpis tincidunt. Nulla facilisi. Donec at dignissim odio. Vivamus non dapibus arcu. Proin vel sapien ut augue
+                                fermentum blandit et vitae urna. Nullam non nunc odio. Fusce vel ultrices quam, sed tempor libero. Nulla facilisi...</p>
+                            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Read More</a>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-image">
+                            <img src="images/monitoring1.jpg" alt="Infrastructure monitoring" class="thumbnail" onclick="openModal(this)">
+                        </div>
+                        <div class="post-details">
+                            <span class="date">January 2024</span>
+                            <h4>Infrastructure monitoring</h4>
+                        </div>
+                        <div class="post-content">
+                            <p class="short-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem at ligula vehicula...</p>
+                            <p class="full-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem at ligula vehicula, sit amet suscipit turpis tincidunt. Nulla facilisi. Donec at dignissim odio. Vivamus non dapibus arcu. Proin vel sapien ut augue
+                                fermentum blandit et vitae urna. Nullam non nunc odio. Fusce vel ultrices quam, sed tempor libero. Nulla facilisi...</p>
+                            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Read More</a>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-image">
+                            <img src="images/monitoring1.jpg" alt="Infrastructure monitoring" class="thumbnail" onclick="openModal(this)">
+                        </div>
+                        <div class="post-details">
+                            <span class="date">January 2024</span>
+                            <h4>Infrastructure monitoring</h4>
+                        </div>
+                        <div class="post-content">
+                            <p class="short-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem at ligula vehicula...</p>
+                            <p class="full-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem at ligula vehicula, sit amet suscipit turpis tincidunt. Nulla facilisi. Donec at dignissim odio. Vivamus non dapibus arcu. Proin vel sapien ut augue
+                                fermentum blandit et vitae urna. Nullam non nunc odio. Fusce vel ultrices quam, sed tempor libero. Nulla facilisi...</p>
+                            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Read More</a>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-image">
+                            <img src="images/monitoring1.jpg" alt="Infrastructure monitoring" class="thumbnail" onclick="openModal(this)">
+                        </div>
+                        <div class="post-details">
+                            <span class="date">January 2024</span>
+                            <h4>Infrastructure monitoring</h4>
+                        </div>
+                        <div class="post-content">
+                            <p class="short-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem at ligula vehicula...</p>
+                            <p class="full-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem at ligula vehicula, sit amet suscipit turpis tincidunt. Nulla facilisi. Donec at dignissim odio. Vivamus non dapibus arcu. Proin vel sapien ut augue
+                                fermentum blandit et vitae urna. Nullam non nunc odio. Fusce vel ultrices quam, sed tempor libero. Nulla facilisi...</p>
+                            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Read More</a>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-image">
+                            <img src="images/monitoring1.jpg" alt="Infrastructure monitoring" class="thumbnail" onclick="openModal(this)">
+                        </div>
+                        <div class="post-details">
+                            <span class="date">January 2024</span>
+                            <h4>Infrastructure monitoring</h4>
+                        </div>
+                        <div class="post-content">
+                            <p class="short-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem at ligula vehicula...</p>
+                            <p class="full-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem at ligula vehicula, sit amet suscipit turpis tincidunt. Nulla facilisi. Donec at dignissim odio. Vivamus non dapibus arcu. Proin vel sapien ut augue
+                                fermentum blandit et vitae urna. Nullam non nunc odio. Fusce vel ultrices quam, sed tempor libero. Nulla facilisi...</p>
+                            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Read More</a>
+                        </div>
+                    </div>
+                    <!-- Repeat for more Monitoring posts -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Structure -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
+
+
+
+    <script>
+        function openModal(img) {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImage");
+            const captionText = document.getElementById("caption");
+
+            modal.style.display = "block";
+            modalImg.src = img.src;
+            captionText.innerHTML = img.alt;
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("imageModal");
+            modal.style.display = "none";
+        }
+
+        // Optional: Close modal when clicking outside of the image
+        window.onclick = function(event) {
+            const modal = document.getElementById("imageModal");
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        function toggleContent(link) {
+            const postContent = link.parentElement;
+            const shortContent = postContent.querySelector('.short-content');
+            const fullContent = postContent.querySelector('.full-content');
+
+            if (fullContent.style.display === "none") {
+                fullContent.style.display = "block";
+                shortContent.style.display = "none";
+                link.textContent = "Read Less";
+            } else {
+                fullContent.style.display = "none";
+                shortContent.style.display = "block";
+                link.textContent = "Read More";
+            }
+        }
+        const posts = document.querySelectorAll('.post');
+
+        // Create an intersection observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                } else {
+                    entry.target.classList.remove('fade-in');
+                }
+            });
+        }, {
+            threshold: 0.1
+        }); // Trigger when 10% of the element is visible
+
+        // Observe each post
+        posts.forEach(post => {
+            observer.observe(post);
+        });
+    </script>
+
+
+
+</body>
+
+</html>
